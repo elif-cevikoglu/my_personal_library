@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import API from '../api';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -15,7 +16,7 @@ function LoginPage() {
       navigate('/books');
     } catch (err) {
       console.error(err);
-      alert('Login failed!');
+      toast.error('Login failed! Please check your credentials.');
     }
   };
 

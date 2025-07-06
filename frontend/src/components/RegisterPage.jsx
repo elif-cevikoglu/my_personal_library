@@ -40,45 +40,61 @@ function RegisterPage() {
   };
 
   return (
-    <div className="container mt-5">
-      <h2>Register</h2>
-      <form onSubmit={handleRegister}>
-        <input
-          type="text"
-          placeholder="Username"
-          className="form-control mb-2"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          disabled={loading}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          className="form-control mb-2"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          disabled={loading}
-          required
-        />
-        <input
-          type="password"
-          placeholder="Confirm Password"
-          className="form-control mb-3"
-          value={rePassword}
-          onChange={(e) => setRePassword(e.target.value)}
-          disabled={loading}
-          required
-        />
-
-        <button type="submit" className="btn btn-success" disabled={loading}>
-          {loading ? 'Registering...' : 'Register'}
-        </button>
-      </form>
-
-      <p className="mt-3">
-        Already have an account? <a href="/">Log in</a>
-      </p>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <div className="bg-white shadow-md rounded-lg p-8 max-w-md w-full">
+        <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Create Your Account</h2>
+        <form onSubmit={handleRegister} className="space-y-4">
+          <div>
+            <label className="block mb-1 text-sm text-gray-600">Username</label>
+            <input
+              type="text"
+              placeholder="Choose a username"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              disabled={loading}
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-1 text-sm text-gray-600">Password</label>
+            <input
+              type="password"
+              placeholder="Create a password"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              disabled={loading}
+              required
+            />
+          </div>
+          <div>
+            <label className="block mb-1 text-sm text-gray-600">Confirm Password</label>
+            <input
+              type="password"
+              placeholder="Re-enter your password"
+              className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              value={rePassword}
+              onChange={(e) => setRePassword(e.target.value)}
+              disabled={loading}
+              required
+            />
+          </div>
+          <button
+            type="submit"
+            className="w-full cursor-pointer bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition"
+            disabled={loading}
+          >
+            {loading ? 'Registering...' : 'Register'}
+          </button>
+        </form>
+        <p className="mt-4 text-center text-sm text-gray-600">
+          Already have an account?{' '}
+          <a href="/" className="text-indigo-600 hover:underline">
+            Log in here
+          </a>
+        </p>
+      </div>
     </div>
   );
 }
